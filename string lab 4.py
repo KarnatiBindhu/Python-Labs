@@ -1,0 +1,47 @@
+#Write a python program to handle a ZeroDivisionError exception when dividing a number by zero.
+a=10
+b=5
+try:
+  if b==0:
+    raise ZeroDivisionError("b value should not be zero")
+  else:
+    c=a/b
+    print(c)
+except ZeroDivisionError as e:
+    print(e)
+#Write apython program that prompts the user to input an integer and raises a ValueError exception if the input is not avalid integer.
+
+try:
+    a=int(input("Enter a value:"))
+    b=int(input("Enter b value:"))
+    c=a/b
+    print(c)
+    print("Middle")
+except ZeroDivisionError:
+    print("b value cannot be a zero")
+except ValueError:
+    print("value should be a number")
+print("End")
+
+#Write a python program that opens a file and handles a FileNotFoundError exception if the file does not exist.
+
+try:
+    # Attempt to open a file in read mode
+    with open("example.txt", "r") as file:
+        content = file.read()
+        print(content)
+
+except FileNotFoundError:
+    print("Error: The file 'example.txt' was not found. Please check the file path and try again.")
+
+#Write a python program that prompts the user to input two numbers and raises a TypeError exception if the inputs are not numerical.
+
+try:
+  a=input("Enter a number:")
+  b=input("Enter a number:")
+  c=a/b
+  print(c)
+  print("Middle")
+except:
+  print("Inputs should be Numerical")
+print("End")
