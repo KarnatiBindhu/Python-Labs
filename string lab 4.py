@@ -26,13 +26,14 @@ print("End")
 #Write a python program that opens a file and handles a FileNotFoundError exception if the file does not exist.
 
 try:
-    # Attempt to open a file in read mode
-    with open("example.txt", "r") as file:
-        content = file.read()
-        print(content)
+  file=open("three.txt","r")
+  for line in file:
+    print(line)
+except:
+  print("File not Found")
+else:
+  print("else block")
 
-except FileNotFoundError:
-    print("Error: The file 'example.txt' was not found. Please check the file path and try again.")
 
 #Write a python program that prompts the user to input two numbers and raises a TypeError exception if the inputs are not numerical.
 
