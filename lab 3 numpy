@@ -1,0 +1,45 @@
+#1.Suppose you have a dataset containing daily temperature readings for a city, and you want to identify days with extreme temperature conditions.
+#Find days where the temperature either exceeded 35 degrees Celsius (hot day) or dropped below 5 degrees Celsius (cold day).
+#Input:temperatures = np.array([32.5, 34.2,6,5, 36.8,4, 29.3, 31.0,2, 38.7, 23.1,1, 18.5, 22.8,-2, 37.2])
+
+import numpy as np
+temperatures=np.array([32.5,34.2,6,5,36.8,4,29.3,31.0,2,38.7,23.1,1,18.5,22.8,-2,37.2])
+extreme_days=(temperatures>35)|(temperatures<5)
+print("Extreme temperature readings:",temperatures[extreme_days])
+
+#2.Suppose you have a dataset containing monthly sales data for a company, and you want to split this data into quarterly reports for analysis and reporting purposes.
+#Input:monthly_sales = np.array([120, 135, 148, 165, 180, 155, 168, 190, 205, 198, 210, 225])
+
+monthly_sales=np.array([120,135,148,165,180,155,168,190,205,198,210,225])
+quarterly_sales=np.split(monthly_sales,4)
+for i,quarter in enumerate(quarterly_sales,1):
+    print(f"quarter{i} sales:",quarter)
+
+#3.Suppose you have a dataset containing customer data, and you want to split this data into two groups: one group for customers who made a purchase in the last 30 days and
+#another group for customers who haven't made a purchase in the last 30 days.
+#Input:customer_ids = np.array([101, 102, 103, 104, 105, 106, 107, 108, 109, 110])
+#last_purchase_days_ago = np.array([5, 15, 20, 25, 30, 35, 40, 45, 50, 55])
+
+customer_ids=np.array([101,102,103,104,105,106,107,108,109,110])
+last_purchase_days_ago=np.array([5,15,20,25,30,35,40,45,50,55])
+recent_customers=customer_ids[last_purchase_days_ago<=30]
+inactive_customers=customer_ids[last_purchase_days_ago>30]
+print("Recent customers(<=30 days):",recent_customers)
+print("inactive customers(>30 days):",inactive_customers)
+
+
+#4.Suppose you have two sets of employee data—one containing information about full-time employees and another containing information about part-time employees. You
+#want to combine this data to create a comprehensive employee dataset for HR analysis.
+#Input:
+# Employee data for full-time employees
+#full_time_employees = np.array([[101, 'John Doe', 'Full-Time', 55000],[102, 'Jane Smith', 'Full-Time', 60000],[103, 'Mike Johnson', 'Full-Time', 52000]])
+# Employee data for part-time employees
+#part_time_employees = np.array([[201, 'Alice Brown', 'Part-Time', 25000],[202, 'Bob Wilson', 'Part-Time', 28000],[203, 'Emily Davis', 'Part-Time', 22000]])
+
+#code
+
+full_time_employees = np.array([[101, 'John Doe', 'Full-Time', 55000],[102, 'Jane Smith', 'Full-Time', 60000],[103, 'Mike Johnson', 'Full-Time', 52000]], dtype=object)
+part_time_employees = np.array([[201, 'Alice Brown', 'Part-Time', 25000],[202, 'Bob Wilson', 'Part-Time', 28000],[203, 'Emily Davis', 'Part-Time', 22000]], dtype=object)
+all_employees = np.vstack((full_time_employees, part_time_employees))
+print("Combined Employee Dataset:")
+print(all_employees)
